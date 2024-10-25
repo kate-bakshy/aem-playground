@@ -1,0 +1,7 @@
+{
+    "scripts": [
+        "create path (sling:OrderedFolder) /content/dam/playground",
+        "create path (nt:unstructured) /content/dam/playground/jcr:content",
+        "set properties on /content/dam/playground/jcr:content\n  set cq:conf{String} to /conf/playground\n  set jcr:title{String} to \"AEM Playground\"\nend"
+    ]
+}

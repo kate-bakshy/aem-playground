@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/playground/clientlibs"/>
+    <filter root="/apps/playground/components"/>
+    <filter root="/apps/playground/i18n"/>
+</workspaceFilter>
