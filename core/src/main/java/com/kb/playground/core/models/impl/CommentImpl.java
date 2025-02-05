@@ -1,13 +1,11 @@
 package com.kb.playground.core.models.impl;
 
-import javax.inject.Inject;
-
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Exporter;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.Required;
 import org.apache.sling.models.annotations.injectorspecific.Self;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.adobe.cq.export.json.ComponentExporter;
 import com.adobe.cq.export.json.ExporterConstants;
@@ -21,20 +19,19 @@ import com.kb.playground.core.models.Comment;
 
 @Model(
         adaptables = Resource.class,
-        adapters = {Comment.class, ComponentExporter.class},
+        adapters = {Comment.class},
         resourceType = CommentImpl.RESOURCE_TYPE,
         defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL
 )
 @Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
-public class CommentImpl extends AbstractComponentImpl implements Comment {
+public class CommentImpl implements Comment {
     
     protected static final String RESOURCE_TYPE = "/apps/playground/components/comment";
     
-    @Inject
+    @ValueMapValue
     private String authorName;
     
-    @Inject
-    @Required
+    @ValueMapValue
     private String text;
     
     @Self
@@ -46,18 +43,5 @@ public class CommentImpl extends AbstractComponentImpl implements Comment {
 
     public String getText() {
         return text;
-    }
-    
-    @Override
-    @NotNull
-    public String getExportedType() {
-        return resource.getResourceType();
-    }
-    
-    @Override
-    protected ComponentData getComponentData() {
-        return DataLayerBuilder.extending(super.getComponentData()).asComponent()
-                .withText(() -> StringUtils.defaultIfEmpty(this.getText(), StringUtils.EMPTY))
-                .build();
     }
 }
