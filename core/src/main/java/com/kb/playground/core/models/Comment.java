@@ -1,11 +1,13 @@
 package com.kb.playground.core.models;
 
+import com.adobe.cq.wcm.core.components.models.Component;
+
 /**
  * Defines the {@code Comment} Sling Model used for the {@code /apps/playground/components/comment} component.
  *
  */
 
-public interface Comment {
+public interface Comment extends Component {
 
     /**
      * Retrieves the author name to be displayed.
@@ -25,20 +27,7 @@ public interface Comment {
         return null;
     }
     
-    default String getId() {
-        return null;
-    }
-    
     default boolean isEmpty() {
         return true;
-    }
-    
-    /**
-     * Retrieves the comment text to be displayed.
-     *
-     * @return the comment text to be displayed, or {@code null} if no value can be returned
-     */
-    default String getData() {
-        return null;
     }
 }

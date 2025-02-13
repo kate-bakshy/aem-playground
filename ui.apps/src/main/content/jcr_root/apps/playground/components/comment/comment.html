@@ -1,7 +1,7 @@
 <div data-sly-use.comment="com.kb.playground.core.models.Comment"
      data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
      data-sly-test.hasContent="${!comment.empty}"
-     data-cmp-data-layer="${comment.data}"
+     data-cmp-data-layer="${comment.data.json}"
      id="${comment.id}"
      class="cmp-comment">
      <p class="cmp-comment__author" data-sly-test.authorName="${comment.authorName}">${authorName}</p>
