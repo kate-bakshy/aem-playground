@@ -1,0 +1,67 @@
+.cmp-comment {
+    
+    @imageSize: 80px;
+    
+    float: left;
+    width: 30%;
+    padding: 1.25rem;
+    margin: 1.25rem 0;
+    background-color: #CBD5E0;
+    
+    border-radius: 1.25rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    
+    .cmp-comment__image {
+        float: left;
+        
+        .cmp-image__image {
+            width: @imageSize;
+            height: @imageSize;
+            border-radius: calc(@imageSize / 2);
+            object-fit: cover;
+            margin-right: 1.25rem;
+        }
+    }
+    
+    .cmp-comment__author {
+        padding-top: 0.5rem;
+        margin-bottom: .25rem;
+        margin-top: 0;
+    }
+    
+    .cmp-byline__occupations {
+        text-transform: uppercase;
+        color: #718096;
+        line-height: 1.5;
+        font-size: 14px;
+    }
+    
+    .cmp-comment__text {
+        clear: left;
+    }
+}
+
+/*
+ *   Defining colour themes for the Comment component
+ *
+ */
+ 
+.cmp-comment--black {
+    
+    .cmp-comment {
+        background-color: black;
+        color: white;
+    }
+    
+    h3 {
+        color: white;
+    }
+}
+
+.cmp-comment--white {
+    
+    .cmp-comment {
+        background-color: white;
+    }
+}

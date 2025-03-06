@@ -1,0 +1,17 @@
+<div data-sly-use.comment="com.kb.playground.core.models.Comment"
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+     data-sly-test.hasContent="${comment.hasContent}"
+     data-cmp-data-layer="${comment.data.json}"
+     id="${comment.id}"
+     class="cmp-comment">
+
+     <div class="cmp-comment__image"
+        data-sly-resource="${'.' @ resourceType = 'core/wcm/components/image/v3/image', wcmmode='disabled'}"></div>
+
+     <h3 class="cmp-comment__author" data-sly-test.authorName="${comment.authorName}">${authorName}</h3>
+     <p class="cmp-byline__occupations" data-sly-test.authorOccupations="${comment.authorOccupations}">${authorOccupations @ join=', '}</p>
+     <div class="cmp-comment__text" data-sly-test.text="${comment.text}">${text @ context='html'}</div>
+
+</div>
+
+<sly data-sly-call="${templates.placeholder @ isEmpty=!hasContent, classAppend='cmp-comment'}"></sly>

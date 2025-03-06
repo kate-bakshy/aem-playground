@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="AEM Playground - Comment"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                     <asset 
+                        jcr:primaryType="nt:unstructured"
+                        sling:hideResource="{Boolean}true"/>
+                     <metadata 
+                        jcr:primaryType="nt:unstructured"
+                        sling:hideResource="{Boolean}true"/> 
+                     <mainTab
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Comment text"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <commentText
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                fieldLabel="Comment text"
+                                name="./text"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins
+                                    jcr:primaryType="nt:unstructured">
+                                    <format
+                                        jcr:primaryType="nt:unstructured"
+                                        features="bold,italic" />
+                                    <links
+                                        jcr:primaryType="nt:unstructured"
+                                        features="modifylink,unlink" />
+                                    <lists
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*" />
+                                </rtePlugins>
+                                <uiSettings
+                                    jcr:primaryType="nt:unstructured">
+                                    <cui jcr:primaryType="nt:unstructured">
+                                        <inline
+                                            jcr:primaryType="nt:unstructured"
+                                            toolbar="[format#bold,format#italic,format#underline,#justify,#lists,links#modifylink,links#unlink,#paraformat]">
+                                            <popovers
+                                                jcr:primaryType="nt:unstructured">
+                                                <lists
+                                                    jcr:primaryType="nt:unstructured"
+                                                    items="[lists#unordered,lists#ordered,lists#outdent,lists#indent]"
+                                                    ref="lists" />
+                                            </popovers>
+                                        </inline>
+                                        <dialogFullScreen
+                                            jcr:primaryType="nt:unstructured"
+                                            toolbar="[lists#unordered,lists#ordered,lists#outdent,lists#indent,links#modifylink,links#unlink]">
+                                        </dialogFullScreen>
+                                    </cui>
+                                </uiSettings>
+                            </commentText>
+                            <id
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="HTML ID attribute to apply to the component."
+                                fieldLabel="ID"
+                                name="./id"
+                                validation="html-unique-id-validator" />
+                        </items>
+                    </mainTab>
+                    <author
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Author"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <authorName
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Author name"
+                                fieldDescription="Name of the person who left comment"
+                                name="./authorName" />
+                            <authorOccupations
+                                jcr:primaryType="nt:unstructured"
+                                fieldLabel="Occupations"
+                                fieldDescription="A list of the author's occupations"
+                                required="{Boolean}false"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    name="./authorOccupations"
+                                    emptyText="Enter an occupation"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"/>
+                            </authorOccupations>
+                            <authorImage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                class="cq-droptarget"
+                                fieldLabel="Author image"
+                                fileNameParameter="./fileName"
+                                fileReferenceParameter="./fileReference"
+                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff]"
+                                name="./file"/>
+                        </items>
+                    </author>
+                    <cq:styles
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/include"
+                        path="/mnt/overlay/cq/gui/components/authoring/dialog/style/tab_edit/styletab"/>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
