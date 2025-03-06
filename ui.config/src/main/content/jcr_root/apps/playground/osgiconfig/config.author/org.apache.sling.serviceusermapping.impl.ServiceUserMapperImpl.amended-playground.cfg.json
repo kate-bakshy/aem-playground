@@ -1,0 +1,5 @@
+{
+  "user.mapping": [
+    "aem-playground.core:playground-workflow-user=[playground-workflow-service-user]"
+  ]
+}
